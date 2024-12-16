@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サポート | RenalCalc</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1B2B4B;
+      --primary-light: #2A3F6C;
+      --background: #F8F9FD;
+      --surface: #FFFFFF;
+      --text-primary: #1A1A1A;
+      --text-secondary: #6B7280;
+      --accent: #4A90E2;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      background-color: var(--background);
+      color: var(--text-primary);
+    }
+
+    .header {
+      background-color: var(--surface);
+      padding: 1.5rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+
+    .logo i {
+      color: var(--accent);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .guide-section {
+      margin: 4rem 0;
+    }
+
+    .guide-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    .guide-card {
+      background: var(--surface);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .guide-card h3 {
+      color: var(--primary);
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .guide-card h3 i {
+      color: var(--accent);
+    }
+
+    .guide-card p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .guide-card ul {
+      list-style: none;
+      padding-left: 1.5rem;
+    }
+
+    .guide-card li {
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+
+    .guide-card li::before {
+      content: "•";
+      color: var(--accent);
+      position: absolute;
+      left: -1rem;
+    }
+
+    .note {
+      background-color: #F1F5F9;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .note i {
+      color: var(--accent);
+      margin-right: 0.5rem;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .support-card {
+      background: var(--surface);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s ease;
+    }
+
+    .support-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .support-card i {
+      font-size: 2rem;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .support-card h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .support-card p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--surface);
+      padding: 0.8rem 1.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-light);
+    }
+
+    .faq-section {
+      margin-top: 4rem;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    .faq-item {
+      background: var(--surface);
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .faq-item h3 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-item p {
+      color: var(--text-secondary);
+    }
+
+    .footer {
+      background-color: var(--primary);
+      color: var(--surface);
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+
+    .footer p {
+      margin: 0;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .container {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <a href="#" class="logo">
+        <i class="fas fa-kidney"></i>
+        RenalCalc
+      </a>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="hero">
+      <h1>RenalCalc サポート</h1>
+      <p>腎機能評価をより簡単に。医療従事者の皆様のお手伝いをいたします。</p>
+    </div>
+
+    <div class="guide-section">
+      <h2>使い方ガイド</h2>
+      
+      <div class="guide-card">
+        <h3><i class="fas fa-calculator"></i>基本的な使い方</h3>
+        <p>RenalCalcでは、以下の情報を入力することで、腎機能の評価に必要な各種指標を計算できます：</p>
+        <ul>
+          <li>性別（男性・女性）</li>
+          <li>年齢（18-120歳）</li>
+          <li>身長（120-200cm）</li>
+          <li>体重（30-150kg）</li>
+          <li>血清クレアチニン値（0.3-15.0 mg/dL）</li>
+        </ul>
+        <div class="note">
+          <i class="fas fa-info-circle"></i>
+          入力項目はすべて必須です。範囲外の値を入力した場合はエラーメッセージが表示されます。
+        </div>
+      </div>
+
+      <div class="guide-card">
+        <h3><i class="fas fa-chart-line"></i>計算結果の見方</h3>
+        <p>計算結果として以下の3つの値が表示されます：</p>
+        <ul>
+          <li>eGFR（推算糸球体濾過量）：日本腎臓学会の推奨式に基づいて計算</li>
+          <li>CCr（クレアチニンクリアランス）：Cockcroft-Gault式による計算</li>
+          <li>体表面積：藤本式による計算</li>
+        </ul>
+        <p>eGFRの結果には、CKDステージ（G1～G5）も合わせて表示されます。</p>
+      </div>
+
+      <div class="guide-card">
+        <h3><i class="fas fa-book-medical"></i>計算式について</h3>
+        <p>各指標は以下の計算式に基づいて算出されています：</p>
+        <ul>
+          <li>eGFR：日本腎臓学会の推奨式（年齢、性別による補正あり）</li>
+          <li>CCr：Cockcroft-Gault式（体重、年齢、性別による補正あり）</li>
+          <li>BSA：藤本式（身長、体重による計算）</li>
+        </ul>
+        <p>詳細な計算式は、アプリ内の「計算式の詳細」ボタンから確認できます。</p>
+      </div>
+    </div>
+
+    <div class="support-grid">
+      <div class="support-card">
+        <i class="fas fa-envelope"></i>
+        <h2>お問い合わせ</h2>
+        <p>アプリに関するご質問やご不明点がございましたら、こちらからお問い合わせください。</p>
+        <a href="mailto:yutabee@gmail.com" class="btn">メールで問い合わせる</a>
+      </div>
+
+      <div class="support-card">
+        <i class="fas fa-exclamation-circle"></i>
+        <h2>ご注意事項</h2>
+        <p>計算結果はあくまで参考値です。実際の診断には、他の検査結果や臨床所見を含めた総合的な判断が必要です。</p>
+      </div>
+    </div>
+
+    <div class="faq-section">
+      <h2>よくあるご質問</h2>
+      
+      <div class="faq-item">
+        <h3>Q. 計算結果の精度について</h3>
+        <p>日本腎臓学会の推奨式に基づいて計算を行っています。特殊な病態（急性腎障害、極端な体格、サルコペニアなど）では、正確な腎機能を反映しない可能性があります。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Q. 対応デバイスについて</h3>
+        <p>iOS 13.0以降、Android 8.0以降のスマートフォンでご利用いただけます。タブレット端末でもご利用可能です。</p>
+      </div>
+
+      <div class="faq-item">
+        <h3>Q. データの保存について</h3>
+        <p>入力されたデータはすべてデバイス内で処理され、外部に送信されることはありません。プライバシーと情報セキュリティに配慮し、アプリを終了すると、入力データは自動的に消去されます。</p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2024 RenalCalc | Yuta Tamaru</p>
+    </div>
+  </footer>
+</body>
+</html>
